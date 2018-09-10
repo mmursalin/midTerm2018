@@ -1,6 +1,4 @@
 package math.problems;
-import databases.ConnectToSqlDB;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +26,6 @@ import java.util.List;
 
 					}
                     int i = count++;
-                }
-				System.out.println(" ");
-                ConnectToSqlDB.insertDataFromArrayToSqlTable(array, "tbl_pattern", "column_pattern");
-				storePattern = connectDB.readDataBase("tbl_pattern", "column_pattern");
-				System.out.println("Data is reading from the Table (tbl_pattern) and displaying to the console");
-				for (String st : storePattern) {
-					System.out.print(" " + st);
 				}
 			}
 		}
