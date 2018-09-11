@@ -70,7 +70,10 @@ Relational database management system use B-tree.
 Network data model use graph, hierarchical data model use trees
 
 How HashMap works in java?
-
+A HashMap element has key and value in Java,
+elements are stored against a key.
+Map Interface implemented on HashMap in Java Collection Framework.
+Elements manipulation is easy on the basis of key of the value.
 
 What is ArrayIndexOutOfBoundsException in java? When it occurs?
 array index out of bounds exception is when you try to access an index that does not exist.
