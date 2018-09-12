@@ -1,4 +1,7 @@
 package algorithm;
+
+import databases.ConnectToSqlDB;
+
 import java.util.List;
 import java.util.Random;
 
@@ -19,79 +22,123 @@ public class Numbers {
 
     public static void main(String[] args) throws Exception {
 
-        //By following above, Continue for rest of the Sorting Algorithm....
-
-
-
-
-        //Come to conclusion about which Sorting Algo is better in given data set.
-        System.out.println("this might take a while ..Please be patient\n");
-        int[] num = new int[100000];
+        int [] num = new int[100];
         storeRandomNumbers(num);
+        ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+        //Selection Sort
+
         Sort algo = new Sort();
+
         algo.selectionSort(num);
-        //long SortExecutionTime = algo.executionTime;
-        System.out.println("Total Execution Time of "+ num.length + " numbers in Selection Sort take: " + algo.executionTime + " milli sec");
-//		for (int el: num) {
-//			System.out.print(el + " ");
-//		}
+        long selectionSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of "+ num.length + " numbers in Selection Sort take: " + selectionSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
+        List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
+        printValue(numbers);
         int n = num.length;
         randomize (num, n);
+        numbers.clear();
 
-        // buble sort
-        algo.bubbleSort(num);
-        //long SortExecutionTime = algo.executionTime;
-        System.out.println("\n\nTotal Execution Time of "+ num.length + " numbers in bubble Sort take: " + algo.executionTime + " milli sec");
-//		for (int el: num) {
-//			System.out.print(el + " ");
-//		}
-
-        randomize (num, n);
-
-        // insertion sort
+        //Insertion Sort
         algo.insertionSort(num);
-        //long SortExecutionTime = algo.executionTime;
-        System.out.println("\n\nTotal Execution Time of "+ num.length + " numbers in insertion Sort take: " + algo.executionTime + " milli sec");
-//		for (int el: num) {
-//			System.out.print(el + " ");
-//		}
-
-        randomize (num, n);
-
-        // merge sort
-        algo.MergeSort(num,0,n-1);
-        //long SortExecutionTime = algo.executionTime;
-        System.out.println("\n\nTotal Execution Time of "+ num.length + " numbers in MergeSort take: " + algo.executionTime + " milli sec");
-//		for (int el: num) {
-//			System.out.print(el + " ");
-//		}
-
-        randomize (num, n);
-
-        // Quicksort
-        algo.Quicksort(num,0,n-1);
-        //long SortExecutionTime = algo.executionTime;
-        System.out.println("\n\nTotal Execution Time of "+ num.length + " numbers in QuickSort take: " + algo.executionTime + " milli sec");
-//		for (int el: num) {
-//			System.out.print(el + " ");
-//		}
+        long insertionSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "insertion_sort", "insertingNumbers");
+        numbers = connectToSqlDB.readDataBase("insertion_sort", "insertingNumbers");
+        printValue(numbers);
         n = num.length;
         randomize (num, n);
+        numbers.clear();
+        //By following above, Continue for rest of the Sorting Algorithm....
 
-        // Bucketsort
-        int returnArray[] = algo.Bucketsort(num,100000);
-        //long SortExecutionTime = algo.executionTime;
-        System.out.println("\n\nTotal Execution Time of "+ num.length + " numbers in BucketSort take: " + algo.executionTime + " milli sec");
-//		for (int el: returnArray) {
-//			System.out.print(el + " ");
-//		}
-        System.out.println("\nBased on the average runtime from each of these Algorithms I have concluded that BucketSort is the fastest sorting algorithm for large datasets");
+        //Bubble sort
+        algo.bubbleSort(num);
+        long bubbleSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in Bubble Sort take: " + bubbleSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "bubble_sort", "bubbleNumbers");
+        numbers = connectToSqlDB.readDataBase("bubble_sort", "bubbleNumbers");
+        printValue(numbers);
+        n = num.length;
+        randomize (num, n);
+        numbers.clear();
+        //Heap Sort
+        algo.heapSort(num);
+        long heapSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in Heap Sort take: " + heapSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "heap_sort", "heapNumbers");
+        numbers = connectToSqlDB.readDataBase("heap_sort", "heapNumbers");
+        printValue(numbers);
+        n = num.length;
+        randomize (num, n);
+        numbers.clear();
+        //Bucket sort
+        algo.bucketSort(num);
+        long bucketSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in bucket Sort take: " + bucketSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "bucket_sort", "bucketNumbers");
+        numbers = connectToSqlDB.readDataBase("bucket_sort", "bucketNumbers");
+        printValue(numbers);
+        n = num.length;
+        randomize (num, n);
+        numbers.clear();
+        //Quick sort
+        algo.quickSort(num, findLow(num), findHigh(num));
+        long quickSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "quick_sort", "quickNumbers");
+        numbers = connectToSqlDB.readDataBase("quick_sort", "quickNumbers");
+        printValue(numbers);
+        n = num.length;
+        randomize (num, n);
+        numbers.clear();
+        //Merge Sort
+        algo.MergeSort(num);
+        long mergeSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in merge Sort take: " + mergeSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "merge_sort", "mergeNumbers");
+        numbers = connectToSqlDB.readDataBase("merge_sort", "mergeNumbers");
+        printValue(numbers);
+        n = num.length;
+        randomize (num, n);
+        numbers.clear();
+        //Shell Short
+        algo.shellSort(num);
+        long shellSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in Shell Sort take: " + shellSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "shell_sort", "shellNumbers");
+        numbers = connectToSqlDB.readDataBase("shell_sort", "shellNumbers");
+        printValue(numbers);
+        n = num.length;
+        randomize (num, n);
+        numbers.clear();
+        //Come to conclusion about which Sorting Algo is better in given data set.
+
     }
+    public static int findLow(int[] array){
+        int low = array[0];
+        for(int n: array){
+            if(array[n] < low){
+                low = array[n];
+            }
+        }
+        return low;
+    }
+
+    public static int findHigh(int[] array){
+        int high = array[0];
+        for(int n: array){
+            if(array[n] > high){
+                high = array[n];
+            }
+        }
+        return high;
+    }
+
 
     public static void storeRandomNumbers(int [] num){
         Random rand = new Random();
         for(int i=0; i<num.length; i++){
-            num[i] = rand.nextInt(100000);
+            num[i] = rand.nextInt(1000000);
         }
     }
 
@@ -113,3 +160,74 @@ public class Numbers {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
