@@ -77,15 +77,16 @@ public class Sort {
     }
     //Merge Sort
 
-    public  void MergeSort(int[] array) {
+    public  int[] mergeSort(int[] array) {
         if (array.length > 1) {
             // split array into two halves
             int[] left = leftHalf(array);
             int[] right = rightHalf(array);
-            MergeSort(left);
-            MergeSort(right);
+            mergeSort(left);
+            mergeSort(right);
             merge(array, left, right);
         }
+        return array;
     }
 
     // left half
@@ -133,12 +134,13 @@ public class Sort {
 
 
     //Quick Sort
-    public static void quickSort(int[] arr, int low, int high) {
+    public static int [] quickSort(int[] arr, int low, int high) {
+        final long startTime = System.currentTimeMillis();
         if (arr == null || arr.length == 0)
-            return;
+            return arr;
 
         if (low >= high)
-            return;
+            return arr;
 
         // pick the pivot
         int middle = low + (high - low) / 2;
@@ -168,8 +170,10 @@ public class Sort {
         if (low < j)
             quickSort(arr, low, j);
 
+
         if (high > i)
             quickSort(arr, i, high);
+        return arr;
     }
 
 
@@ -287,5 +291,16 @@ public class Sort {
             System.out.println(array[i]);
         }
     }
+
+    public int[] quickSort(int[] unSortedArray) {
+        int [] array = quickSort(unSortedArray, 0, unSortedArray.length-1);
+        return array;
+    }
+
+    public int[] merge(int[] unSortedArray) {
+        int [] array = mergeSort (unSortedArray);
+        return array;
+    }
+
 }
 

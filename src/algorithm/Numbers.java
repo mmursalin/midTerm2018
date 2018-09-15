@@ -22,7 +22,7 @@ public class Numbers {
 
     public static void main(String[] args) throws Exception {
 
-        int [] num = new int[100];
+        int [] num = new int[100000];
         storeRandomNumbers(num);
         ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
         //Selection Sort
@@ -98,7 +98,7 @@ public class Numbers {
         numbers.clear();
 
         //Merge Sort
-        algo.MergeSort(num);
+        algo.mergeSort(num);
         long mergeSortExecutionTime = algo.executionTime;
         System.out.println("Total Execution Time of " + num.length + " numbers in merge Sort take: " + mergeSortExecutionTime + " milli sec");
         connectToSqlDB.insertDataFromArrayToSqlTable(num, "merge_sort", "mergeNumbers");
