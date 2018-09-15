@@ -217,4 +217,15 @@ public class ConnectToSqlDB {
         }
     }
 
+    public void insertDataFromStringToSqlTable(String array_list, String listElement) {
+
+    }
+
+    public void insertDataFromArrayListToSqlTable(List<String> list1, String use_map, String mapKey, String mapValue) {
+    }
+
+    public List<String> readDataBase(String use_map, String mapKey, String mapValue) {
+
+        return null;
+    }
 }
