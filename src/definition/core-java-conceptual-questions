@@ -44,7 +44,6 @@ Path is used by the operating system/computer to locate java/java libraries whil
 
 What is the difference between an Interface and Abstract class?
 Abstract class can never be instantiated and contains abstract methods.
-
 Abstract classes are models for other classes to implement.
 Interfaces contain method models and constant variables
 
@@ -60,8 +59,9 @@ Object-oriented programming. You program based on objects, which are classes.
 JAVA feature is
 encapsulation- data hiding,
 inheritance- inherit from parent/super class,
-polymorphism- child class refers to parent class & method overload ,
-abstraction- use abstract classes to extend and create concrete classes
+abstraction- use abstract classes to extend and create concrete classes,
+polymorphism- child class refers to parent class &
+  method overload(same siganature different outputs) overriding (same body, same siganture, but different body)
 
 What is Java Package and which package is imported by default?
 Package is namespace for related classes/interface.
@@ -69,15 +69,23 @@ Packages imported by default is noname package, java langauage package and curre
 
 What is API? Name list of API that you have used so far.
 Application program interface provides programmers with tools/protocols/access needed to build software
+Scanner
+Buffer Reader
+String
+File Reader
+Serilizeable
+Map
+System Random
+iterator
 
 Does java support multiple inheritance, explain why or why not?
 No, because need for simplicity and java will confuse which parent class method to use.
 
 What is method overloading and when it happens?
-Method overloading is when a method uses different parameters, happens when more or less arguements are used
+Method overloading is when a method uses different parameters, happens when more or less arguments are used during compile time
 
 Explain exceptions in java and how to handle it.
-Exceptions are declared events, and you can use exception handling to stop program
+Exceptions are declared events, and you can use exception handling to stop program using Try and Catch
 
 What is static keyword in java? How it has been used in variables and methods ?
 Static is a keyword, it denotes that you can access method/variable without creating object.
@@ -86,9 +94,9 @@ What is final and how it has been used variables and methods?
 final keyword, is a restriction that makes sure you cannot change value/override method
 
 What is final, finally and finalize?
-final keyword cannot change value/override.
-finally used in blocks to execute code and make system messages.
-finalize- called when garbage collection occurs, when no references made to object
+final keyword cannot change value/override. (Keyword)
+finally used in blocks (used in try catch block) to execute code and make system messages.(Block)
+finalize- called when garbage collection occurs, when no references made to object (Method)
 
 What is a constructor ?
 constructor is used to create instance of a class, it intializes the object
@@ -112,7 +120,7 @@ Is JVM platform independent?
 java is platform independent, can run on many systems/OSes/hardware
 
 What version of java are you using?
-JDK 10
+JDK 10/8
 
 What is JAR stand for ?
 Java Archive
@@ -139,7 +147,7 @@ String is a class,
 string buffer and string builder are mutable can change values.
 
 What is Singleton class?
-Singleton classes are class that exist for a specific purpose, limit object to one instance.
+Singleton classes are class that exist for a specific purpose, limit object to one instance. (keeping private constructors)
 
 What is Serialization and Deserialization?
 turn object into sequence of bytes sent in streams,
@@ -165,7 +173,7 @@ Why is String Immutable in Java?
 Strings are Immutable for security
 
 What is constructor chaining in Java?
-Calling one constructor from inside another constructor
+Calling one constructor from inside another constructor with respect to
 
 The difference between Serial and Parallel Garbage Collector?
 Serial is single thread,
@@ -187,8 +195,8 @@ Heap space is larger than stack memory.
 Heap stores objects, stack stores variables and call stack.
 
 What is reflection in java and why is it useful?
-Code that inspects other code,it is useful because
-it allows you to get information on your interfaces/fields/methods
+Code that inspects other code,
+it is useful because it allows you to get information on your interfaces/fields/methods
 
 what is multithreading in java?
 process of running multiple threads simultaneously.
@@ -218,11 +226,3 @@ Dependency injection is when objects pass in dependencies externally,
 What is static binding and dynamic binding?
 Static binding references are done during compiler time
 dynamic binding references are done during runtime.
-
-
-
-
-
-
-
-
